@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+<input list="newdatepicker" name="datepicker_1" id="datepicker_1" placeholder="Select from date">
+<datalist id="newdatepicker">
+<?php
+$begin = new DateTime();
+$end   = new DateTime( "+1000days" );
+$date_to_be_removed = array("2021-08-08", "2021-08-09");
+for($i = $begin; $i <= $end; $i->modify('+1 day'))
+{
+	if(!in_array($i->format("Y-m-d"), $date_to_be_removed))
+    {
+    	echo "<option value='" . $i->format("Y-m-d") . "'>";
+	}
+}
+?>
+</datalist>
+<input list="newdatepicker_2" name="datepicker_2" id="datepicker_2" placeholder="Select to date">
+<datalist id="newdatepicker_2">
+<?php
+$begin = new DateTime();
+$end   = new DateTime( "+1000days" );
+$date_to_be_removed = array("2021-08-08", "2021-08-09");
+for($i = $begin; $i <= $end; $i->modify('+1 day'))
+{
+	if(!in_array($i->format("Y-m-d"), $date_to_be_removed))
+    {
+    	echo "<div style='border=1px'><option value='" . $i->format("Y-m-d") . "'></div>";
+	}
+}
+?>
+</datalist>
+
+</body>
+</html>
